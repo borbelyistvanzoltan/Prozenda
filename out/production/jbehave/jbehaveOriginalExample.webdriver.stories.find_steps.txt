@@ -1,0 +1,142 @@
+
+(jbehaveOriginalExample/webdriver/stories/find_steps.story)
+Scenario: User searches for a single step
+Given user is on Home page (PENDING)
+When user opens Find Steps page (PENDING)
+Then Find Steps page is shown (PENDING)
+When user searches for "Given a threshold of 10.0" (PENDING)
+Then search returns: "Given a threshold of $threshold" (PENDING)
+When user views with methods (PENDING)
+Then search returns: "Given a threshold of $threshold,
+    [org.jbehave.web.examples.trader.steps.TraderSteps.aThreshold(double)]" (PENDING)
+And steps instances include: "TraderSteps,StockExchangeSteps" (PENDING)
+@Given("user is on Home page")
+@Pending
+public void givenUserIsOnHomePage() {
+  // PENDING
+}
+
+@When("user opens Find Steps page")
+@Pending
+public void whenUserOpensFindStepsPage() {
+  // PENDING
+}
+
+@Then("Find Steps page is shown")
+@Pending
+public void thenFindStepsPageIsShown() {
+  // PENDING
+}
+
+@When("user searches for \"Given a threshold of 10.0\"")
+@Pending
+public void whenUserSearchesForGivenAThresholdOf100() {
+  // PENDING
+}
+
+@Then("search returns: \"Given a threshold of $threshold\"")
+@Pending
+public void thenSearchReturnsGivenAThresholdOfthreshold() {
+  // PENDING
+}
+
+@When("user views with methods")
+@Pending
+public void whenUserViewsWithMethods() {
+  // PENDING
+}
+
+@Then("search returns: \"Given a threshold of $threshold,\n    [org.jbehave.web.examples.trader.steps.TraderSteps.aThreshold(double)]\"")
+@Pending
+public void thenSearchReturnsGivenAThresholdOfthresholdorgjbehavewebexamplestraderstepsTraderStepsaThresholddouble() {
+  // PENDING
+}
+
+@Then("steps instances include: \"TraderSteps,StockExchangeSteps\"")
+@Pending
+public void thenStepsInstancesIncludeTraderStepsStockExchangeSteps() {
+  // PENDING
+}
+
+
+Scenario: User searches and sorts all steps
+Given user is on Home page (PENDING)
+When user opens Find Steps page (PENDING)
+Then Find Steps page is shown (PENDING)
+When user searches for all steps (PENDING)
+Then search returns: "Given a threshold of $threshold,
+    Given a limit of $threshold,
+    When the stock is traded at $price,
+    When a trading step fails,
+    When a step with <markup>,
+    Then the alert status should be $status,
+    Then the trader sells all stocks,
+    Then the trader liquidates stocks,
+    Given a resource root directory $rootDirectory,
+    Given a stock exchange $stockExchange,
+    When the stock exchange is opened,
+    Then the stock exchanges opened are as contained in $resource" (PENDING)
+When user sorts by pattern (PENDING)
+Then search returns: "Given a limit of $threshold,
+    Given a resource root directory $rootDirectory,
+    Given a stock exchange $stockExchange,
+    Given a threshold of $threshold,
+    When a step with <markup>,
+    When a trading step fails,
+    When the stock exchange is opened,
+    When the stock is traded at $price,
+    Then the alert status should be $status,
+    Then the stock exchanges opened are as contained in $resource,
+    Then the trader liquidates stocks,
+    Then the trader sells all stocks" (PENDING)
+And steps instances include: "TraderSteps,StockExchangeSteps" (PENDING)
+@Given("user is on Home page")
+@Pending
+public void givenUserIsOnHomePage() {
+  // PENDING
+}
+
+@When("user opens Find Steps page")
+@Pending
+public void whenUserOpensFindStepsPage() {
+  // PENDING
+}
+
+@Then("Find Steps page is shown")
+@Pending
+public void thenFindStepsPageIsShown() {
+  // PENDING
+}
+
+@When("user searches for all steps")
+@Pending
+public void whenUserSearchesForAllSteps() {
+  // PENDING
+}
+
+@Then("search returns: \"Given a threshold of $threshold,\n    Given a limit of $threshold,\n    When the stock is traded at $price,\n    When a trading step fails,\n    When a step with <markup>,\n    Then the alert status should be $status,\n    Then the trader sells all stocks,\n    Then the trader liquidates stocks,\n    Given a resource root directory $rootDirectory,\n    Given a stock exchange $stockExchange,\n    When the stock exchange is opened,\n    Then the stock exchanges opened are as contained in $resource\"")
+@Pending
+public void thenSearchReturnsGivenAThresholdOfthresholdGivenALimitOfthresholdWhenTheStockIsTradedAtpriceWhenATradingStepFailsWhenAStepWithmarkupThenTheAlertStatusShouldBestatusThenTheTraderSellsAllStocksThenTheTraderLiquidatesStocksGivenAResourceRootDirectoryrootDirectoryGivenAStockExchangestockExchangeWhenTheStockExchangeIsOpenedThenTheStockExchangesOpenedAreAsContainedInresource() {
+  // PENDING
+}
+
+@When("user sorts by pattern")
+@Pending
+public void whenUserSortsByPattern() {
+  // PENDING
+}
+
+@Then("search returns: \"Given a limit of $threshold,\n    Given a resource root directory $rootDirectory,\n    Given a stock exchange $stockExchange,\n    Given a threshold of $threshold,\n    When a step with <markup>,\n    When a trading step fails,\n    When the stock exchange is opened,\n    When the stock is traded at $price,\n    Then the alert status should be $status,\n    Then the stock exchanges opened are as contained in $resource,\n    Then the trader liquidates stocks,\n    Then the trader sells all stocks\"")
+@Pending
+public void thenSearchReturnsGivenALimitOfthresholdGivenAResourceRootDirectoryrootDirectoryGivenAStockExchangestockExchangeGivenAThresholdOfthresholdWhenAStepWithmarkupWhenATradingStepFailsWhenTheStockExchangeIsOpenedWhenTheStockIsTradedAtpriceThenTheAlertStatusShouldBestatusThenTheStockExchangesOpenedAreAsContainedInresourceThenTheTraderLiquidatesStocksThenTheTraderSellsAllStocks() {
+  // PENDING
+}
+
+@Then("steps instances include: \"TraderSteps,StockExchangeSteps\"")
+@Pending
+public void thenStepsInstancesIncludeTraderStepsStockExchangeSteps() {
+  // PENDING
+}
+
+
+

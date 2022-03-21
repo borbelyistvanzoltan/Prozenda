@@ -1,0 +1,25 @@
+<story path="JbehaveWebDriveExample/scr/stories/test_menu.story" title="">
+<scenario keyword="Scenario:" title="User opens home page and checks the menu">
+<step outcome="pending" keyword="PENDING">Given user is on Home page</step>
+<step outcome="pending" keyword="PENDING">When user clicks on Resume from menu</step>
+<step outcome="pending" keyword="PENDING">Then Resume page is shown</step>
+<pendingMethod>@Given(&quot;user is on Home page&quot;)
+@Pending
+public void givenUserIsOnHomePage() {
+  // PENDING
+}
+</pendingMethod>
+<pendingMethod>@When(&quot;user clicks on Resume from menu&quot;)
+@Pending
+public void whenUserClicksOnResumeFromMenu() {
+  // PENDING
+}
+</pendingMethod>
+<pendingMethod>@Then(&quot;Resume page is shown&quot;)
+@Pending
+public void thenResumePageIsShown() {
+  // PENDING
+}
+</pendingMethod>
+</scenario>
+</story>

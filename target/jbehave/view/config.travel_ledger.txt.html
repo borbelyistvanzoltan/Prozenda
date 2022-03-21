@@ -1,0 +1,103 @@
+<html>
+<head>
+<title>config.travel_ledger</title>
+<style type="text/css" media="all">
+@import url( "./style/jbehave-core.css" );
+</style>
+</head>
+<body>
+ 
+<script type="syntaxhighlighter" class="brush: txt"><![CDATA[
+
+(config/travel_ledger.story)
+
+
+Scenario: login as Seller, import Transaction file, validate the upload, login as Buyer, validate Transaction file
+Given I login as: "istvan.borbely@prozenda.com" with password: "Prozenda2022" (FAILED)
+(org.openqa.selenium.StaleElementReferenceException: The element reference of <input id="email" class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputMarginDense MuiOutlinedInput-inputMarginDense" name="username" type="text"> is stale; either the element is no longer attached to the DOM, it is not in the current frame context, or the document has been refreshed
+For documentation on this error, please visit: https://selenium.dev/exceptions/#stale_element_reference
+Build info: version: '4.1.2', revision: '9a5a329c5a'
+System info: host: 'Borbely-MacBook-Air.local', ip: '2001:4c4e:1d82:4500:74cc:3fa5:86d9:779b%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '12.2.1', java.version: '1.8.0_321'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [218bc1a8-497b-4132-81a5-73f5fdce9d38, sendKeysToElement {id=3f1f7321-b549-40cb-b5a3-98493e22ea28, value=[Ljava.lang.CharSequence;@6a7acc1c}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 98.0.1, javascriptEnabled: true, moz:accessibilityChecks: false, moz:buildID: 20220313140707, moz:debuggerAddress: localhost:60296, moz:geckodriverVersion: 0.30.0, moz:headless: false, moz:processID: 13032, moz:profile: /var/folders/nv/vcbpnp3n365..., moz:shutdownTimeout: 60000, moz:useNonSpecCompliantPointerOrigin: false, moz:webdriverClick: true, pageLoadStrategy: normal, platform: MAC, platformName: MAC, platformVersion: 21.3.0, proxy: Proxy(), se:cdp: ws://localhost:60296/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Element: [[FirefoxDriver: firefox on MAC (218bc1a8-497b-4132-81a5-73f5fdce9d38)] -> id: email]
+Session ID: 218bc1a8-497b-4132-81a5-73f5fdce9d38)
+Given Wait for loading main page (PENDING)
+Then Navigate to Import file page (PENDING)
+Then Select Auto commit uploaded invoices checkbox (PENDING)
+Then Upload transaction file from "\\/Users\\/borbelyistvan\\/Documents\\/Prozenda\\/Travelledger\\/transactions.xls" (PENDING)
+Then Navigate to Bookings page (PENDING)
+Then Check that the transactions have been commited and can be viewed (PENDING)
+Then Logout (PENDING)
+@Given("Wait for loading main page")
+@Pending
+public void givenWaitForLoadingMainPage() {
+  // PENDING
+}
+
+@Then("Navigate to Import file page")
+@Pending
+public void thenNavigateToImportFilePage() {
+  // PENDING
+}
+
+@Then("Select Auto commit uploaded invoices checkbox")
+@Pending
+public void thenSelectAutoCommitUploadedInvoicesCheckbox() {
+  // PENDING
+}
+
+@Then("Upload transaction file from \"\\\\/Users\\\\/borbelyistvan\\\\/Documents\\\\/Prozenda\\\\/Travelledger\\\\/transactions.xls\"")
+@Pending
+public void thenUploadTransactionFileFromUsersborbelyistvanDocumentsProzendaTravelledgertransactionsxls() {
+  // PENDING
+}
+
+@Then("Navigate to Bookings page")
+@Pending
+public void thenNavigateToBookingsPage() {
+  // PENDING
+}
+
+@Then("Check that the transactions have been commited and can be viewed")
+@Pending
+public void thenCheckThatTheTransactionsHaveBeenCommitedAndCanBeViewed() {
+  // PENDING
+}
+
+@Then("Logout")
+@Pending
+public void thenLogout() {
+  // PENDING
+}
+
+
+
+
+
+
+]]></script>
+</body>
+<!--  SyntaxHighlighter resources:  should be included at end of body -->
+<link rel="stylesheet" type="text/css" href="./style/sh-3.0.83/shCore.css"/>
+<link rel="stylesheet" type="text/css" href="./style/sh-3.0.83/shThemeRDark.css"/>
+<script language="javascript" src="./js/sh-3.0.83/shCore.js"></script>
+<script language="javascript" src="./js/sh-3.0.83/shBrushBash.js"></script>
+<script language="javascript" src="./js/sh-3.0.83/shBrushCss.js"></script>
+<script language="javascript" src="./js/sh-3.0.83/shBrushDiff.js"></script>
+<script language="javascript" src="./js/sh-3.0.83/shBrushGroovy.js"></script>
+<script language="javascript" src="./js/sh-3.0.83/shBrushJava.js"></script>
+<script language="javascript" src="./js/sh-3.0.83/shBrushJScript.js"></script>
+<script language="javascript" src="./js/sh-3.0.83/shBrushPlain.js"></script>
+<script language="javascript" src="./js/sh-3.0.83/shBrushPython.js"></script>
+<script language="javascript" src="./js/sh-3.0.83/shBrushRuby.js"></script>
+<script language="javascript" src="./js/sh-3.0.83/shBrushScala.js"></script>
+<script language="javascript" src="./js/sh-3.0.83/shBrushXml.js"></script>
+<script language="javascript" src="./js/shBrushBdd.js"></script>
+<script type="text/javascript">
+    SyntaxHighlighter.defaults['gutter'] = false;
+    SyntaxHighlighter.defaults['toolbar'] = false;    
+    SyntaxHighlighter.all();
+</script>
+</html>

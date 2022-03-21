@@ -1,0 +1,19 @@
+<div class="story">
+<h1></h1>
+<div class="path">travelledgerJbehave/webdriver/stories/travel_ledger.story</div>
+<div class="scenario">
+<h2>Scenario: login as Seller, import Transaction file, validate the upload, login as Buyer, validate Transaction file</h2>
+<div class="step successful">Given user is on Login page</div>
+<div class="step successful">Given I login as: &quot;istvan.borbely@prozenda.com&quot; with password: &quot;Prozenda2022&quot;</div>
+<div class="step successful">Given Wait for loading main page</div>
+<div class="step successful">Then Navigate to Import file page</div>
+<div class="step successful">Then Select Auto commit uploaded invoices checkbox</div>
+<div class="step ignorable">!-- Then Upload transaction file from &quot;\\/Users\\/borbelyistvan\\/Documents\\/Prozenda\\/Travelledger\\/transactions.xls&quot;</div>
+<div class="step successful">Then Navigate to Bookings page</div>
+<div class="step successful">Then Check that the transactions have been commited and can be viewed</div>
+<div class="step successful">Then Logout</div>
+<div class="step successful">Given I login as: &quot;borbely.istvan.zoltan@gmail.com&quot; with password: &quot;Prozenda2022&quot;</div>
+<div class="step successful">Then Navigate to Bookings page</div>
+<div class="step successful">Then Check that the transactions have been commited and can be viewed</div>
+</div>
+</div>

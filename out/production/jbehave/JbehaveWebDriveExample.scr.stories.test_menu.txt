@@ -1,0 +1,26 @@
+
+(JbehaveWebDriveExample/scr/stories/test_menu.story)
+Scenario: User opens home page and checks the menu
+Given user is on Home page (PENDING)
+When user clicks on Resume from menu (PENDING)
+Then Resume page is shown (PENDING)
+@Given("user is on Home page")
+@Pending
+public void givenUserIsOnHomePage() {
+  // PENDING
+}
+
+@When("user clicks on Resume from menu")
+@Pending
+public void whenUserClicksOnResumeFromMenu() {
+  // PENDING
+}
+
+@Then("Resume page is shown")
+@Pending
+public void thenResumePageIsShown() {
+  // PENDING
+}
+
+
+

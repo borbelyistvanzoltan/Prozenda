@@ -1,0 +1,39 @@
+<story path="jbehaveOriginalExample/webdriver/stories/data_file.story" title="">
+<scenario keyword="Scenario:" title="User uploads data files">
+<step outcome="pending" keyword="PENDING">Given user is on Home page</step>
+<step outcome="pending" keyword="PENDING">When user opens Data Files page</step>
+<step outcome="pending" keyword="PENDING">Then Data Files page is shown</step>
+<step outcome="pending" keyword="PENDING">When user uploads file src/main/resources/archive.zip</step>
+<step outcome="pending" keyword="PENDING">Then file archive.zip is uploaded</step>
+<pendingMethod>@Given(&quot;user is on Home page&quot;)
+@Pending
+public void givenUserIsOnHomePage() {
+  // PENDING
+}
+</pendingMethod>
+<pendingMethod>@When(&quot;user opens Data Files page&quot;)
+@Pending
+public void whenUserOpensDataFilesPage() {
+  // PENDING
+}
+</pendingMethod>
+<pendingMethod>@Then(&quot;Data Files page is shown&quot;)
+@Pending
+public void thenDataFilesPageIsShown() {
+  // PENDING
+}
+</pendingMethod>
+<pendingMethod>@When(&quot;user uploads file src/main/resources/archive.zip&quot;)
+@Pending
+public void whenUserUploadsFileSrcmainresourcesarchivezip() {
+  // PENDING
+}
+</pendingMethod>
+<pendingMethod>@Then(&quot;file archive.zip is uploaded&quot;)
+@Pending
+public void thenFileArchivezipIsUploaded() {
+  // PENDING
+}
+</pendingMethod>
+</scenario>
+</story>

@@ -1,0 +1,40 @@
+
+(jbehaveOriginalExample/webdriver/stories/data_file.story)
+Scenario: User uploads data files
+Given user is on Home page (PENDING)
+When user opens Data Files page (PENDING)
+Then Data Files page is shown (PENDING)
+When user uploads file src/main/resources/archive.zip (PENDING)
+Then file archive.zip is uploaded (PENDING)
+@Given("user is on Home page")
+@Pending
+public void givenUserIsOnHomePage() {
+  // PENDING
+}
+
+@When("user opens Data Files page")
+@Pending
+public void whenUserOpensDataFilesPage() {
+  // PENDING
+}
+
+@Then("Data Files page is shown")
+@Pending
+public void thenDataFilesPageIsShown() {
+  // PENDING
+}
+
+@When("user uploads file src/main/resources/archive.zip")
+@Pending
+public void whenUserUploadsFileSrcmainresourcesarchivezip() {
+  // PENDING
+}
+
+@Then("file archive.zip is uploaded")
+@Pending
+public void thenFileArchivezipIsUploaded() {
+  // PENDING
+}
+
+
+

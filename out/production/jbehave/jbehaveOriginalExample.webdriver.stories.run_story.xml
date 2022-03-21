@@ -1,0 +1,43 @@
+<story path="jbehaveOriginalExample/webdriver/stories/run_story.story" title="">
+<scenario keyword="Scenario:" title="User runs a single story">
+<step outcome="pending" keyword="PENDING">Given user is on Home page</step>
+<step outcome="pending" keyword="PENDING">When user opens Run Story page</step>
+<step outcome="pending" keyword="PENDING">Then Run Story page is shown</step>
+<step outcome="pending" keyword="PENDING">When user runs story &quot;Given a threshold of 10.0
+    When the stock is traded at 5.0
+    Then the alert status should be OFF
+    When the stock is traded at 11.0
+    Then the alert status should be ON&quot;</step>
+<step outcome="pending" keyword="PENDING">Then run is successful within timeout of 10 secs</step>
+<pendingMethod>@Given(&quot;user is on Home page&quot;)
+@Pending
+public void givenUserIsOnHomePage() {
+  // PENDING
+}
+</pendingMethod>
+<pendingMethod>@When(&quot;user opens Run Story page&quot;)
+@Pending
+public void whenUserOpensRunStoryPage() {
+  // PENDING
+}
+</pendingMethod>
+<pendingMethod>@Then(&quot;Run Story page is shown&quot;)
+@Pending
+public void thenRunStoryPageIsShown() {
+  // PENDING
+}
+</pendingMethod>
+<pendingMethod>@When(&quot;user runs story \&quot;Given a threshold of 10.0\n    When the stock is traded at 5.0\n    Then the alert status should be OFF\n    When the stock is traded at 11.0\n    Then the alert status should be ON\&quot;&quot;)
+@Pending
+public void whenUserRunsStoryGivenAThresholdOf100WhenTheStockIsTradedAt50ThenTheAlertStatusShouldBeOFFWhenTheStockIsTradedAt110ThenTheAlertStatusShouldBeON() {
+  // PENDING
+}
+</pendingMethod>
+<pendingMethod>@Then(&quot;run is successful within timeout of 10 secs&quot;)
+@Pending
+public void thenRunIsSuccessfulWithinTimeoutOf10Secs() {
+  // PENDING
+}
+</pendingMethod>
+</scenario>
+</story>
