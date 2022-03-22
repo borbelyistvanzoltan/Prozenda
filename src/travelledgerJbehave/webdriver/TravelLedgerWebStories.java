@@ -3,7 +3,6 @@ package travelledgerJbehave.webdriver;
 import org.jbehave.core.Embeddable;
 import org.jbehave.core.configuration.Configuration;
 import org.jbehave.core.embedder.executors.DirectExecutorService;
-import org.jbehave.core.embedder.executors.SameThreadExecutors;
 import org.jbehave.core.io.LoadFromClasspath;
 import org.jbehave.core.io.StoryFinder;
 import org.jbehave.core.junit.JUnitStories;
@@ -58,7 +57,6 @@ public class TravelLedgerWebStories extends JUnitStories {
                 lifecycleSteps,
                 new WebDriverScreenshotOnFailure(driverProvider, configuration.storyReporterBuilder()));
     }
-
 
     @Override
     protected List<String> storyPaths() {
