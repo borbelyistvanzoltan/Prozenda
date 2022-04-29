@@ -1,5 +1,5 @@
 Narrative:
-Travel Ledger automation tests
+Travel Ledger automation test
 
-Scenario: login as Seller, import Transaction file, validate the upload, login as Buyer, validate Transaction file
+Scenario: just a simple login for smoke test
 Given user is on Login page

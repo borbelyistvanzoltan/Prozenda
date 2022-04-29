@@ -1,5 +1,5 @@
 Narrative:
-Travel Ledger automation tests
+Travel Ledger 4th automation test
 
 Scenario: TL-142 Booking edit - status - single record - amendment
 Given user is on Login page
