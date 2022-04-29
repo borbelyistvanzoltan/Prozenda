@@ -1,10 +1,7 @@
 package travelledgerJbehave.webdriver.steps;
 
-import org.jbehave.core.annotations.BeforeScenario;
 import org.jbehave.core.annotations.Given;
 import org.jbehave.core.annotations.Then;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import travelledgerJbehave.webdriver.pages.Pages;
 
 public class TravelledgerWebSteps {
@@ -31,32 +28,72 @@ public class TravelledgerWebSteps {
     }
 
     @Then("Navigate to Import file page")
-    public void navigateToImportFilePage() {
-        pages.transactionsPagePOM().navigateToImportFilePage();
+    public void navigateToImportFilePage() throws InterruptedException {
+        pages.transactionsPagePOM().navigateToFileUploadsPage();
     }
 
-    @Then("Select Auto commit uploaded invoices checkbox")
-    public void selectCheckbox() {
-        pages.transactionsPagePOM().selectCheckBox();
+    @Then("Upload transaction file from")
+    public void uploadTransactionFile() throws InterruptedException {
+        pages.transactionsPagePOM().uploadTransactionFile();
     }
 
-    @Then("Upload transaction file")
-    public void uploadTransactionFile(String location) {
-        pages.transactionsPagePOM().uploadTransactionFile(location);
+    @Then("Commit \"$transactionNumber\"")
+    public void commitTransaction(String transactionNumber) throws InterruptedException {
+        pages.transactionsPagePOM().commitTransaction(transactionNumber);
     }
 
     @Then("Navigate to Bookings page")
-    public void navigatesToBookingsPage() {
+    public void navigatesToBookingsPage() throws InterruptedException {
         pages.transactionsPagePOM().navigatesToBookings();
     }
 
-    @Then("Check that the transactions have been commited and can be viewed")
-    public void checkTransactionsCommited() throws InterruptedException {
-        pages.transactionsPagePOM().checkCommitedTransactions();
+    @Then("Change dropdown and select Seller - All Due")
+    public void selectDropDownAndCheckTableFromSellerSide() {
+        pages.transactionsPagePOM().changeQuickViewToSellerAllDue();
+    }
+
+    @Then("Change dropdown and select Buyer - All Due")
+    public void selectDropDownAndCheckTableFromBuyerSide() {
+        pages.transactionsPagePOM().changeQuickViewToBuyerAllDue();
+    }
+
+    @Then("Check \"$transactionNumber\" transaction committed")
+    public void checkTransactionCommitted(String transactionNumber) throws InterruptedException {
+        pages.transactionsPagePOM().checkParameterElementIsExist(transactionNumber);
+    }
+
+    @Then("Check \"$transactionNumber\" transaction committed from Buyer side")
+    public void checkTransactionCommittedFromBuyerSide(String transactionNumber) throws InterruptedException {
+        pages.transactionsPagePOM().checkParameterElementIsExistFromBuyerSide(transactionNumber);
     }
 
     @Then("Logout")
     public void logout() {
         pages.transactionsPagePOM().logout();
+    }
+
+    @Then("Click on the \"$transactionNumber\" transaction status which has blank status and select ACCEPTED status")
+    public void clickOnBlankStatusFieldAndSelectAcceptedStatus(String transactionNumber) throws InterruptedException {
+        pages.transactionsPagePOM().clickOnBlankStatusFieldAndSelectAcceptedStatus(transactionNumber);
+    }
+
+    @Then("Click on the \"$transactionNumber\" transaction status which has blank status and select REJECTED status")
+    public void clickOnBlankStatusFieldAndSelectRejectedStatus(String transactionNumber) throws InterruptedException {
+        pages.transactionsPagePOM().clickOnBlankStatusFieldAndSelectRejectedStatus(transactionNumber);
+    }
+
+    @Then("Click on the \"$transactionNumber\" transaction status which has blank status and select AMENDED status")
+    public void clickOnBlankStatusFieldAndSelectAmendedStatus(String transactionNumber) throws InterruptedException {
+        pages.transactionsPagePOM().clickOnBlankStatusFieldAndSelectAmendedStatus(transactionNumber);
+    }
+
+    @Then("Check that transaction status dropdown has proper elements for \"$transactionNumber\"")
+    public void isFoundAllOptionsInTxStatusDropdown(String transactionNumber) throws InterruptedException {
+        pages.transactionsPagePOM().isFoundAllOptions(transactionNumber);
+    }
+
+    @Then("Filter for \"$transactionNumber\" booking reference")
+    public void filterBookingReference(String transactionNumber) {
+        pages.transactionsPagePOM().filterBookingReference(transactionNumber);
     }
 }

@@ -1,7 +1,9 @@
 package travelledgerJbehave.webdriver;
 
 import org.jbehave.core.Embeddable;
+import org.jbehave.core.annotations.UsingEmbedder;
 import org.jbehave.core.configuration.Configuration;
+import org.jbehave.core.embedder.Embedder;
 import org.jbehave.core.embedder.executors.DirectExecutorService;
 import org.jbehave.core.io.LoadFromClasspath;
 import org.jbehave.core.io.StoryFinder;
@@ -20,6 +22,8 @@ import static java.util.Arrays.asList;
 import static org.jbehave.core.io.CodeLocations.codeLocationFromClass;
 import static org.jbehave.core.reporters.Format.*;
 import static org.jbehave.core.reporters.Format.XML;
+
+@UsingEmbedder(embedder = Embedder.class, ignoreFailureInView = true, generateViewAfterStories = false, storyTimeouts = "1000000", threads = 20, ignoreFailureInStories = true)
 
 public class TravelLedgerWebStories extends JUnitStories {
 
@@ -61,6 +65,6 @@ public class TravelLedgerWebStories extends JUnitStories {
     @Override
     protected List<String> storyPaths() {
         return new StoryFinder()
-                .findPaths(codeLocationFromClass(this.getClass()).getFile(), asList("**/travel_ledger.story"), null);
+                .findPaths(codeLocationFromClass(this.getClass()).getFile(), asList("**/stories/*01*.story"), null);
     }
 }
