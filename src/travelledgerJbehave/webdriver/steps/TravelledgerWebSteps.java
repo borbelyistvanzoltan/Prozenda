@@ -19,7 +19,7 @@ public class TravelledgerWebSteps {
 
     @Given("I login as: \"$email\" with password: \"$pass\"")
     public void loginToMainPage(String email, String pass) {
-        pages.transactionsPagePOM().open(email, pass);
+        pages.loginPagePOM().login(email, pass);
     }
 
     @Given("Wait for loading main page")

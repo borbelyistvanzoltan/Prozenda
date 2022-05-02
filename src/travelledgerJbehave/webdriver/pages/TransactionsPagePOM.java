@@ -16,8 +16,13 @@ import static org.junit.Assert.assertTrue;
 
 public class TransactionsPagePOM extends AbstractPage {
 
-    By loginBtn = By.xpath("/html/body/div[1]/div[2]/div[1]/main/div/div[1]/main/div/form/button");
+    public static final Keys ENTER = Keys.ENTER;
+    String fileUploadLocation = "/Users/borbelyistvan/Documents/Prozenda/Travelledger/Prozenda.txt";
+    WebDriverWait webDriverWait = new WebDriverWait(getDriverProvider().get(), Duration.ofSeconds(6));
 
+    Actions action = new Actions(getDriverProvider().get());
+
+    //TODO: use dynamic route definition
     By fileUploadsBtnInMenu = By.xpath("/html/body/div[1]/div[2]/div[1]/main/div[2]/div/div/a[3]/span[1]");
     By uploadFileBtnInSubMenu = By.xpath("/html/body/div[1]/div[2]/div[1]/main/div[3]/div/div[1]/button[1]/span[1]");
     By dropFileBtn = By.xpath("/html/body/div[4]/div[3]/div/div/div/div[1]/div");
@@ -48,45 +53,46 @@ public class TransactionsPagePOM extends AbstractPage {
     By tableColumnReferenceSeller = By.xpath("//table[2]/tbody/tr/td[6]");
     By tableColumnReferenceBuyer = By.xpath("//table[2]/tbody/tr/td[5]");
 
-    By firstElementStatusField = By.xpath("//table[2]/tbody/tr[1]/td[13]/div/div");
+    By firstElementTxStatusField = By.xpath("//table[2]/tbody/tr[1]/td[13]/div/div");
 
-    WebDriverWait webDriverWait = new WebDriverWait(getDriverProvider().get(), Duration.ofSeconds(6));
-
-    Actions action = new Actions(getDriverProvider().get());
-
+    By statusDropDown = By.xpath("//table[2]/tbody/tr[1]/td[13]/div/div[2]/div[3]/ul");
+    By acceptedStatusFromDropDownList = By.xpath("//table[2]/tbody/tr[1]/td[13]/div");
+    By rejectStatusFromDropDownList = By.xpath("//table[2]/tbody/tr[1]/td[13]/div/div[2]/div[3]/ul/li[3]");
+    By cancelReasonCodeFromDropDownList = By.xpath("//table[2]/tbody/tr[1]/td[14]/div/div[2]/div[3]/ul/li[5]");
+    By amountField = By.xpath("//table[2]/tbody/tr[1]/td[12]/div/div/input");
 
     public TransactionsPagePOM(WebDriverProvider driverProvider) {
         super(driverProvider);
     }
 
-    public void open(String email, String pass) {
-        findElement(By.id("email")).sendKeys(email);
-        findElement(By.id("password")).sendKeys(pass);
-        findElement(loginBtn).click();
-    }
-
     public void navigateToFileUploadsPage() throws InterruptedException {
+        //TODO: change Thread.sleep methods to wait methods
+
         findElement(fileUploadsBtnInMenu).click();
         Thread.sleep(1000);
         //webDriverWait.until(ExpectedConditions.presenceOfElementLocated(getCheckBoxBtnPath()));
     }
 
     public void checkParameterElementIsExist(String transactionNumber) throws InterruptedException {
+        //TODO: change Thread.sleep methods to wait methods
+
         filterBookingReferenceFromSellerSide(transactionNumber);
         List<WebElement> col = findElements(tableColumnReferenceSeller);
         Thread.sleep(1000);
         assertTrue(col.stream().anyMatch((element) -> element.getText().contains(transactionNumber)));
-        System.out.println(transactionNumber + " transaction appear in Bookings page from Seller side!");
+        log.println(transactionNumber + " transaction appear in Bookings page from Seller side!");
     }
 
     public void checkParameterElementIsExistFromBuyerSide(String transactionNumber) throws InterruptedException {
+        //TODO: change Thread.sleep methods to wait methods
+
         filterBookingReference(transactionNumber);
         webDriverWait.until(ExpectedConditions.textToBe(tableColumnReferenceBuyer,transactionNumber));
 
         List<WebElement> col = findElements(tableColumnReferenceBuyer);
         Thread.sleep(1000);
         assertTrue(col.stream().anyMatch((element) -> element.getText().contains(transactionNumber)));
-        System.out.println(transactionNumber + " transaction appear in Bookings page from Buyer side!");
+        log.println(transactionNumber + " transaction appear in Bookings page from Buyer side!");
     }
 
     public void changeQuickViewToSellerAllDue() {
@@ -103,19 +109,19 @@ public class TransactionsPagePOM extends AbstractPage {
 
     //Method to upload file
     public void uploadTransactionFile() throws InterruptedException {
-        String location = "/Users/borbelyistvan/Documents/Prozenda/Travelledger/Prozenda.txt";
-        System.out.println("Click upload file in sub menu.");
+        //TODO: change Thread.sleep methods to wait methods
+
+        log.println("Click upload file in sub menu.");
         findElement(uploadFileBtnInSubMenu).click();
         webDriverWait.until(ExpectedConditions.presenceOfElementLocated(dropFileBtn));
-        System.out.println("Upload file button in sub menu clicked and drop file button loaded.");
+        log.println("Upload file button in sub menu clicked and drop file button loaded.");
         WebElement uploadElement = findElement(inputType);
-        uploadElement.sendKeys(location);
+        uploadElement.sendKeys(fileUploadLocation);
 
-        System.out.println("Transaction file selected lets click upload button.");
+        log.println("Transaction file selected lets click upload button.");
         Thread.sleep(3000);
         findElement(uploadBtn).click();
-        System.out.println("Upload button clicked lets click check box.");
-        //Thread.sleep(3000);
+        log.println("Upload button clicked lets click check box.");
 
         // Check box side if available:
         findElement(importCheckBox).click();
@@ -126,53 +132,57 @@ public class TransactionsPagePOM extends AbstractPage {
     }
 
     public void commitTransaction(String transactionNumber) throws InterruptedException {
+        //TODO: change Thread.sleep methods to wait methods
+        //TODO: divide this method - too long, multiple functions
+
         filterBookingReferenceAfterFileUpload(transactionNumber);
-        System.out.println("Filter the transaction number.");
+        log.println("Filter the transaction number.");
         Thread.sleep(2000);
         findElement(checkBoxAfterUploadFromBuyer).click();
-        System.out.println("Checkbox selected after commetting transaction.");
+        log.println("Checkbox selected after commetting transaction.");
         Thread.sleep(2000);
         findElement(updatePartnerBtn).click();
-        System.out.println("Update button clicked.");
+        log.println("Update button clicked.");
         Thread.sleep(15000);
 
         //TODO: manually step: type Prozenda2 into text box.
 
         //findElement(By.xpath("//*[contains(@id,'mui')]")).click();
-        System.out.println("Partnername is Prozenda2 set by manually.");
+        log.println("Partnername is Prozenda2 set by manually.");
         Thread.sleep(1000);
         findElement(commercialLinkField).click();
         Thread.sleep(1000);
         findElement(prozendaTestAutomationCommercialLink).click();
-        System.out.println("Commercial link is Prozenda Test automation.");
+        log.println("Commercial link is Prozenda Test automation.");
         Thread.sleep(1000);
         findElement(commercialLinkSelectionOkBtn).click();
         Thread.sleep(5000);
-        System.out.println("Wait to disappear message.");
+        log.println("Wait to disappear message.");
 
         findElement(bookingsBtnInMenu).click();
-        System.out.println("Go to Bookings page.");
+        log.println("Go to Bookings page.");
         Thread.sleep(2000);
 
         findElement(fileUploadsBtnInMenu).click();
-        System.out.println("Go to back to File uploads page.");
+        log.println("Go to back to File uploads page.");
         Thread.sleep(2000);
 
         filterBookingReferenceAfterFileUpload(transactionNumber);
-        System.out.println("Filter the transaction number.");
+        log.println("Filter the transaction number.");
 
         findElement(checkBoxAfterUploadFromBuyer).click();
-        System.out.println("Checkbox selected.");
+        log.println("Checkbox selected.");
         Thread.sleep(2000);
 
         findElement(commitBtn).click();
-        System.out.println("Commit button clicked.");
+        log.println("Commit button clicked.");
         Thread.sleep(2000);
     }
 
     //Method to navigate Bookings
     public void navigatesToBookings () throws InterruptedException {
         //webDriverWait.until(ExpectedConditions.invisibilityOfElementLocated(alertMessageAfterUpload));
+        //For double polling
         Thread.sleep(15000);
         findElement(bookingsBtnInMenu).click();
         Thread.sleep(1000);
@@ -185,11 +195,12 @@ public class TransactionsPagePOM extends AbstractPage {
 
     //Method to click on blank status transaction and change to Accepted
     public void clickOnBlankStatusFieldAndSelectAcceptedStatus(String transactionNumber) throws InterruptedException {
-        findElement(By.xpath("//table[2]/tbody/tr[1]/td[13]/div/div")).click();
-        log.println("Checkbox clicked.");
-        findElement(By.xpath("//table[2]/tbody/tr[1]/td[13]/div")).click();
+        //TODO: divide this method - too long, multiple functions
+        findElement(firstElementTxStatusField).click();
+        log.println("Blank status field clicked.");
+        findElement(acceptedStatusFromDropDownList).click();
         log.println("ACCEPTED selected.");
-        assertTrue(findElement(By.xpath("//table[2]/tbody/tr[1]/td[13]/div/div")).getText().equals("ACCEPTED"));
+        assertTrue(findElement(firstElementTxStatusField).getText().equals("ACCEPTED"));
         log.println("ACCEPTED checked and changed successfully.");
 
         webDriverWait.until(ExpectedConditions.elementToBeClickable(fileUploadsBtnInMenu));
@@ -210,23 +221,24 @@ public class TransactionsPagePOM extends AbstractPage {
 
         filterBookingReference(transactionNumber);
 
-        webDriverWait.until(ExpectedConditions.textToBe(By.xpath("//table[2]/tbody/tr/td[5]"),transactionNumber));
+        webDriverWait.until(ExpectedConditions.textToBe(tableColumnReferenceBuyer,transactionNumber));
 
-        assertTrue(findElement(By.xpath("//table[2]/tbody/tr[1]/td[13]/div/div")).getText().equals("ACCEPTED"));
+        assertTrue(findElement(firstElementTxStatusField).getText().equals("ACCEPTED"));
 
         log.println("ACCEPTED checked and changed successfully.");
     }
 
     //Method to click on blank status transaction and change to Rejected
     public void clickOnBlankStatusFieldAndSelectRejectedStatus(String transactionNumber) throws InterruptedException {
-        findElement(By.xpath("//table[2]/tbody/tr[1]/td[13]/div/div")).click();
-        log.println("Checkbox clicked.");
-        findElement(By.xpath("//table[2]/tbody/tr[1]/td[13]/div/div[2]/div[3]/ul/li[3]")).click();
+        //TODO: divide this method - too long, multiple functions
+        findElement(firstElementTxStatusField).click();
+        log.println("Blank status field clicked.");
+        findElement(rejectStatusFromDropDownList).click();
 
-        findElement(By.xpath("//table[2]/tbody/tr[1]/td[14]/div/div[2]/div[3]/ul/li[5]")).click();
+        findElement(cancelReasonCodeFromDropDownList).click();
         log.println("REJECTED selected.");
 
-        assertTrue(findElement(By.xpath("//table[2]/tbody/tr[1]/td[13]/div/div")).getText().equals("REJECTED"));
+        assertTrue(findElement(firstElementTxStatusField).getText().equals("REJECTED"));
         log.println("REJECTED checked and changed successfully.");
 
         webDriverWait.until(ExpectedConditions.elementToBeClickable(fileUploadsBtnInMenu));
@@ -248,22 +260,24 @@ public class TransactionsPagePOM extends AbstractPage {
 
         filterBookingReference(transactionNumber);
 
-        assertTrue(findElement(By.xpath("//table[2]/tbody/tr[1]/td[13]/div/div")).getText().equals("REJECTED"));
+        webDriverWait.until(ExpectedConditions.textToBe(tableColumnReferenceBuyer,transactionNumber));
+        assertTrue(findElement(firstElementTxStatusField).getText().equals("REJECTED"));
         log.println("REJECTED checked and changed successfully.");
     }
 
     //Method to click on blank status transaction and change to Rejected
     public void clickOnBlankStatusFieldAndSelectAmendedStatus(String transactionNumber) throws InterruptedException {
-        findElement(By.xpath("//table[2]/tbody/tr[1]/td[12]/div/div/input")).sendKeys("200");
+        //TODO: divide this method - too long, multiple functions
+        findElement(amountField).sendKeys("200");
         log.println("Set amount to 200");
 
-        findElement(By.xpath("//table[2]/tbody/tr[1]/td[13]/div/div")).click();
-        log.println("Checkbox clicked.");
+        findElement(firstElementTxStatusField).click();
+        log.println("Blank status field clicked.");
 
-        findElement(By.xpath("//table[2]/tbody/tr[1]/td[14]/div/div[2]/div[3]/ul/li[5]")).click();
+        findElement(cancelReasonCodeFromDropDownList).click();
         log.println("AMENDED selected automatically, reason code set.");
 
-        assertTrue(findElement(By.xpath("//table[2]/tbody/tr[1]/td[13]/div/div")).getText().equals("AMENDED"));
+        assertTrue(findElement(firstElementTxStatusField).getText().equals("AMENDED"));
         log.println("AMENDED checked and changed successfully.");
 
         webDriverWait.until(ExpectedConditions.elementToBeClickable(fileUploadsBtnInMenu));
@@ -286,31 +300,32 @@ public class TransactionsPagePOM extends AbstractPage {
         filterBookingReference(transactionNumber);
         Thread.sleep(1000);
 
-        log.println(findElement(By.xpath("//table[2]/tbody/tr[1]/td[13]/div/div")).getText());
-        assertTrue(findElement(By.xpath("//table[2]/tbody/tr[1]/td[13]/div/div")).getText().equals("AMENDED"));
+        log.println(findElement(firstElementTxStatusField).getText());
+        assertTrue(findElement(firstElementTxStatusField).getText().equals("AMENDED"));
         log.println("AMENDED checked and changed successfully.");
     }
 
     // Validating Tx Status dropdown elements
     public void isFoundAllOptions(String transactionNumber) throws InterruptedException {
-        findElement(By.xpath("//table[2]/tbody/tr[1]/td[13]/div/div")).click();
+        findElement(firstElementTxStatusField).click();
         log.println("Clicked the TX status dropbox.");
 
-        WebElement status = findElement(By.xpath("//table[2]/tbody/tr[1]/td[13]/div/div[2]/div[3]/ul"));
+        WebElement status = findElement(statusDropDown);
         log.println("TX status dropbox elements has found.");
 
         List<WebElement> links = status.findElements(By.tagName("li"));
         for (int i = 0; i < links.size(); i++) {
             assertTrue(links.get(i).getText().equals("ACCEPTED") || links.get(i).getText().equals("AMENDED") || links.get(i).getText().equals("REJECTED"));
         }
+
         log.println("Assertion of ACCEPTED, AMENDED, REJECTED Tx status are passed.");
         action.sendKeys(Keys.ESCAPE).perform();
-        webDriverWait.until(ExpectedConditions.elementToBeClickable(firstElementStatusField));
+        webDriverWait.until(ExpectedConditions.elementToBeClickable(firstElementTxStatusField));
     }
 
     public void filterBookingReference(String transactionNumber) {
         findElement(bookingRefernceFilterFieldFromBuyer).sendKeys(transactionNumber);
-        action.sendKeys(Keys.ENTER).perform();
+        action.sendKeys(ENTER).perform();
         log.println("Filter " + transactionNumber + " booking reference successfully.");
     }
 
